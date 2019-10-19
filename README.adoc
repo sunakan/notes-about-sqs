@@ -1,6 +1,9 @@
 == SQS(使ってるのはElasticMQ)にRubyで入れてGoでとりだしたい
 
 ----
+$ git clone hogehoge
+$ cp env.sample .env
+#=> AWS_のアクセスキーなどはdummyのままでよい
 $ make up
 $ make enq
 #=> mqに10個詰まった状態になる
