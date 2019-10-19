@@ -1,0 +1,11 @@
+---
+
+version: "3.7"
+
+services:
+  mq:
+    image: softwaremill/elasticmq:${ELASTICMQ_VERSION_TAG:-0.15.2}
+    ports:
+      - 9324:9324
+    volumes:
+      - ../elasticmq/elasticmq.conf:/opt/elasticmq.conf:ro
