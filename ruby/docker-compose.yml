@@ -16,5 +16,5 @@ services:
     environment:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-dummy}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-dummy}
-      SQS_ENDPOINT_URL: ${SQS_ENDPOINT_URL}
-      SQS_QUEUE_URL: ${SQS_QUEUE_URL}
+      SQS_ENDPOINT_URL: ${SQS_ENDPOINT_URL:-http://mq:9324}
+      SQS_QUEUE_URL: ${SQS_QUEUE_URL:-http://mq:9324/queue/sample.fifo}
