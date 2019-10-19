@@ -1,0 +1,16 @@
+== SQS(使ってるのはElasticMQ)にRubyで入れてGoでとりだしたい
+
+----
+$ make up
+$ make enq
+#=> mqに10個詰まった状態になる
+----
+
+=== mqのサイズ確認
+
+----
+$ make mq-size
+----
+
+==== 学び
+* RubyのSQS clientで学習したことはRSpecで記録
