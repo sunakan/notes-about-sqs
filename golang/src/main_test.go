@@ -1,10 +1,12 @@
 package main
 
 import (
-	"testing";
-	"fmt";
+	"testing"
 )
 
-func TestExampleSuccess(t *testing.T) {
-	fmt.Printf("Hello world\n")
+func TestHello(t *testing.T) {
+	result := Hello()
+	if result != "Hello" {
+		t.Fatal("テスト失敗")
+	}
 }
