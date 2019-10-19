@@ -13,6 +13,9 @@ RSpec.describe "Learning Aws::Sqs::Client" do
   let(:client)   { Aws::SQS::Client.new(endpoint: endpoint, region: region) }
 
   describe "clientを作る" do
+    before do
+      ENV["AWS_REGION"] = nil
+    end
     it "Regionの指定が必要" do
       expect {
         Aws::SQS::Client.new(endpoint: endpoint)
@@ -20,6 +23,10 @@ RSpec.describe "Learning Aws::Sqs::Client" do
     end
     it "client宣言成功" do
       expect(client.instance_of?(Aws::SQS::Client)).to be_truthy
+    end
+    it "AWS_REGIONという環境変数を用意しておけば、Regionを明示的に指定する必要がない" do
+      ENV["AWS_REGION"] = "ap-northeast-1"
+      expect(Aws::SQS::Client.new(endpoint: endpoint).instance_of?(Aws::SQS::Client)).to be_truthy
     end
   end
 end
