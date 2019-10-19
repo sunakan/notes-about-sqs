@@ -8,7 +8,8 @@ services:
     tty: true
     working_dir: /app
     build:
-      context: .
+      context: ../
+      dockerfile: ruby/Dockerfile
       args:
         TAG: ${RUBY_VERSION_TAG:-2.6-slim}
     volumes:
@@ -18,3 +19,5 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-dummy}
       SQS_ENDPOINT_URL: ${SQS_ENDPOINT_URL:-http://mq:9324}
       SQS_QUEUE_URL: ${SQS_QUEUE_URL:-http://mq:9324/queue/sample.fifo}
+    links:
+      - mq

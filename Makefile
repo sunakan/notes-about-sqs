@@ -8,7 +8,7 @@ up:
 	docker-compose up -d
 
 bash:
-	docker-compose exec app bash
+	docker-compose exec go bash
 
 enq:
 	docker-compose exec app bundle exec rspec

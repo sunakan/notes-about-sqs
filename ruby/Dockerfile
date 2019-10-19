@@ -3,5 +3,5 @@ FROM ruby:${TAG}
 
 WORKDIR /app
 
-COPY Gemfile* ./
+COPY ./ruby/Gemfile* ./
 RUN bundle install
