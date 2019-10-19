@@ -4,6 +4,7 @@ version: "3.7"
 
 services:
   go:
+    working_dir: /go/src
     command: bash
     tty: true
     build:
