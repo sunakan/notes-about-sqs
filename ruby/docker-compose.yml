@@ -1,0 +1,20 @@
+---
+
+version: "3.7"
+
+services:
+  app:
+    command: bash
+    tty: true
+    working_dir: /app
+    build:
+      context: .
+      args:
+        TAG: ${RUBY_VERSION_TAG:-2.6-slim}
+    volumes:
+      - ../ruby:/app
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-dummy}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-dummy}
+      SQS_ENDPOINT_URL: ${SQS_ENDPOINT_URL}
+      SQS_QUEUE_URL: ${SQS_QUEUE_URL}
