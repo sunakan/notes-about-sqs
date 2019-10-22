@@ -13,6 +13,10 @@ RSpec.describe "Learning Aws::Sqs::Client" do
     after_endpoint = ENV["SQS_ENDPOINT_URL"] || "https://sqs.ap-northeast-1.amazonaws.com"
     after_region   = ENV["AWS_REGION"] || "ap-northeast-1"
     after_client   = Aws::SQS::Client.new(endpoint: after_endpoint, region: after_region)
+    # クリアして
+    after_client.purge_queue({
+      queue_url: ENV["SQS_QUEUE_URL"],
+    })
     # 最後に10個messageを詰めとく
     10.times do |idx|
       after_client.send_message({
