@@ -16,13 +16,13 @@ func TestEnvconfigHello(t *testing.T) {
 //	AWS_REGION = os.Getenv("AWS_REGION") || "ap-northest-1"
 //)
 type Env struct {
-	AWS_REGION string `envconfig:"AWS_REGION"  default:"ap-northest"`
+	AWS_REGION string `envconfig:"AWS_REGION" default:"ap-northest-1"`
 }
 func TestEnvconfig(t *testing.T) {
 	region1 := os.Getenv("AWS_REGION")
 	if region1 != "" {
 		t.Log(region1)
-		t.Fatal("region1は空文字で有るべき")
+		t.Fatal("region1は空文字であるべき")
 	}
 
 	var goenv Env
@@ -34,7 +34,7 @@ func TestEnvconfig(t *testing.T) {
 	}
 	// 代入は可能か? => 可能
 	t.Log(goenv.AWS_REGION)
-	goenv.AWS_REGION = "HELL WORLD"
+	goenv.AWS_REGION = "HELLO WORLD"
 	t.Log(goenv.AWS_REGION)
 	// では定数としては。。。？ => 無理
 	// 定数はコンパイル時に決定されるらしいので、評価式はだめっぽい
