@@ -12,7 +12,7 @@ bash:
 
 test:
 	docker-compose exec app bundle exec rspec
-	docker-compose exec go go test
+	docker-compose exec go go test -v
 
 down:
 	docker-compose down
