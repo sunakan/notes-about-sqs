@@ -26,3 +26,18 @@ func TestGetEnv(t *testing.T) {
 		t.Fatal("環境変数AWS_SECRET_ACCESS_KEYはdummyであるべき")
 	}
 }
+
+// おこ
+//const (
+//	AWS_REGION = os.Getenv("AWS_REGION") || "ap-northest-1"
+//)
+const (
+	AWS_REGION         = "AWS_REGION"
+	DEFAULT_AWS_REGION = "ap-northest-1"
+)
+func TestConstAndEnvAndTLog(t *testing.T) {
+	region := os.Getenv(AWS_REGION)
+	t.Log(region)
+	t.Log(DEFAULT_AWS_REGION)
+	//t.Fatal("t.LogはFatalのときに初めて出力される。。？ => go test -v")
+}
