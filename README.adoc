@@ -5,8 +5,9 @@ $ git clone hogehoge
 $ cp env.sample .env
 #=> AWS_のアクセスキーなどはdummyのままでよい
 $ make up
-$ make enq
-#=> mqに10個詰まった状態になる
+$ make test
+#=> Rubyでmqに10個詰まった状態になる
+#=> Goで取り出し
 ----
 
 === mqのサイズ確認
@@ -17,3 +18,4 @@ $ make mq-size
 
 ==== 学び
 * RubyのSQS clientで学習したことはRSpecで記録
+* Golangで動的な定数は難しい(finalやfreeze的なものがない?)
