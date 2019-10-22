@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'aws-sdk-sqs'
+require 'json'
 
 RSpec.describe "Learning Aws::Sqs::Client" do
 
@@ -16,7 +17,7 @@ RSpec.describe "Learning Aws::Sqs::Client" do
     10.times do |idx|
       after_client.send_message({
         queue_url: ENV["SQS_QUEUE_URL"],
-        message_body: "hello-#{idx}",
+        message_body: {id: idx, name: "apple-#{idx}"}.to_json,
         message_group_id: "g-sample",
         message_deduplication_id: "hoge-#{idx}",
       })
