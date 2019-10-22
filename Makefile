@@ -10,8 +10,9 @@ up:
 bash:
 	docker-compose exec go bash
 
-enq:
+test:
 	docker-compose exec app bundle exec rspec
+	docker-compose exec go go test
 
 down:
 	docker-compose down
